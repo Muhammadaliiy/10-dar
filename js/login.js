@@ -1,19 +1,24 @@
 import { login } from "./request.js";
 import { validator } from "./utils.js";
 
-window.addEventListener("load", () => {
-    localStorage.getItem("user") ? window.location.href = "/index.html" : "/pages/login.html";
-})
 
 const loginForm = document.getElementById("form");
 const toastSuccess = document.getElementById("toast-success");
 const toastDanger = document.getElementById("toast-danger");
 const toastWarning = document.getElementById("toast-warning");
-const succesText = document.getElementById("succesText");
+const successText = document.getElementById("successText");
 const warningText = document.getElementById("warningText");
 const dangerText = document.getElementById("dangerText");
+const spinner = document.getElementById("spinner");
+const buttonText = document.getElementById("button-text");
 
-loginForm.addEventListener("submit", (e) => {
+const hideToast = (toast) => {
+    setTimeout(() => {
+        toast.classList.add("hidden");
+    }, 3000);
+};
+
+loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const result = {};
@@ -25,32 +30,39 @@ loginForm.addEventListener("submit", (e) => {
     const error = validator(result);
 
     if (error) {
-        toastWarning.classList.remove("noShow");
+        toastWarning.classList.remove("hidden");
         warningText.innerText = error.message;
         e.target[error.target].focus();
-    }
-    else {
-        e.target.dataset.state = "pending";
-        login(result).then((res) => {
-            localStorage.setItem("user", JSON.stringify(res));
-            toastSuccess.classList.remove("noShow");
-            succesText.innerText = "Login successful";
-
-            setInterval(() => {
-                window.location.href = "/index.html";
-            }, 1500)
-
-        }).catch((err) => {
-            toastDanger.classList.remove("noShow");
-            dangerText.innerText = "User not found";
-            setInterval(() => {
-                window.location.href = "/pages/register.html";
-            }, 2000)
-
-        }).finally(() => {
-            e.target.dataset.state = "normal";
-        })
+        hideToast(toastWarning);
+        return;
     }
 
+    e.target.dataset.state = "pending";
+    spinner.classList.remove("hidden");
+    buttonText.classList.add("hidden");
+    loginForm.querySelector("button").disabled = true;
 
+    try {
+        console.log("Attempting to login with:", result);
+        const res = await login(result);
+        localStorage.setItem("user", JSON.stringify(res));
+        toastSuccess.classList.remove("hidden");
+        successText.innerText = "Login successful";
+        hideToast(toastSuccess);
+        setTimeout(() => {
+            window.location.href = "/index.html";
+        }, 1500);
+    } catch (err) {
+        toastDanger.classList.remove("hidden");
+        dangerText.innerText = err.message || "User not found";
+        hideToast(toastDanger);
+        setTimeout(() => {
+            window.location.href = "/pages/register.html";
+        }, 2000);
+    } finally {
+        e.target.dataset.state = "normal";
+        spinner.classList.add("hidden");
+        buttonText.classList.remove("hidden");
+        loginForm.querySelector("button").disabled = false;
+    }
 });

@@ -11,5 +11,12 @@ export function validator(obj) {
             message: "Password is required",
         };
     }
+
+    if (obj.confirm_password && obj.password !== obj.confirm_password) {
+        return {
+            target: "confirm_password",
+            message: "Passwords do not match",
+        };
+    }
     return false;
 }
