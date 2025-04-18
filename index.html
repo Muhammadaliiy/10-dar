@@ -1,19 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link rel="stylesheet" href="/css/output.css" />
+    <title>Car rental</title>
+    <link href="./css/output.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style class="">
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
+    </style>
   </head>
-  <body
-    class="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 p-4"
-  >
-    <h1
-      class="text-center font-sans font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-white"
+  <script src="js/auth.js"></script>
+
+  <body id="car-list" class="flex flex-col min-h-screen text-gray-800 bg-white">
+    <header class="border-b border-gray-300 mb-5">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center gap-6">
+          <img src="./img/Logo.svg" alt="Logo" class="h-10" />
+          <address class="not-italic font-semibold">
+            Toshkent, Uzbekistan
+          </address>
+        </div>
+
+        <button
+          class="bg-green-700 text-white px-6 py-3 rounded-full hover:opacity-70"
+        >
+          <a href="./pages/create.html">Add</a>
+        </button>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section
+      class="bg-cover bg-center h-[500px] rounded-2xl mb-32 text-center text-white"
+      style="
+        background-image: url('./img/846af0516a7743339898b3ad3f42e950.jpg');
+      "
     >
-      Home Page
-    </h1>
-    <script type="module" src="/js/home.js"></script>
+      <div class="pt-16">
+        <h1 class="text-3xl font-semibold mb-2">Sports cars</h1>
+        <p class="text-base max-w-md mx-auto mb-16">
+          Rent cars as you are comfortable and where you are comfortable.
+        </p>
+        <div class="relative w-[600px] mx-auto">
+          <input
+            type="text"
+            placeholder="Search..."
+            class="bg-blue-50 w-full py-5 px-8 rounded-full shadow-lg outline-none text-black"
+          />
+          <button
+            class="absolute right-2 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-green-700 flex justify-center items-center"
+          >
+            <img src="./img/Component 15.svg" alt="Search" class="w-10 h-10" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETAILS -->
+    <section class="max-w-6xl mx-auto mb-40 text-center">
+      <h2 class="text-3xl font-semibold mb-2">Details Title</h2>
+      <p class="text-base mb-10 max-w-xl mx-auto">
+        Brief description about the section content.
+      </p>
+      <div class="flex justify-center gap-4 mb-6">
+        <div
+          class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <!-- CARD 1 -->
+          <div
+            class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300"
+          >
+            <img
+              src="./img/image 13.svg"
+              alt="Car 1"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-bold text-gray-800">Rols Royce</h3>
+              <p class="text-gray-600 mt-1">
+                Narxi:
+                <span class="font-semibold text-green-600">$517,000</span>
+              </p>
+              <p class="text-gray-600">
+                1 kunlik: <span class="text-red-500 font-medium">$500</span>
+              </p>
+              <p class="text-sm text-gray-500 mt-2">
+                To'liq elektr, avtomatik, 2023-yil model, zamonaviy dizayn
+                bilan.
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 2 -->
+          <div
+            class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300"
+          >
+            <img
+              src="./img/image 13-3.svg"
+              alt="Car 2"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-bold text-gray-800">Lamborghini Urus</h3>
+              <p class="text-gray-600 mt-1">
+                Narxi:
+                <span class="font-semibold text-green-600">$300,000</span>
+              </p>
+              <p class="text-gray-600">
+                1 kunlik: <span class="text-red-500 font-medium">$300</span>
+              </p>
+              <p class="text-sm text-gray-500 mt-2">
+                Quvvatli SUV, qulaylik uchun mo‘ljallangan, premium salon.
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 3 -->
+          <div
+            class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300"
+          >
+            <img
+              src="./img/image 13-2.svg"
+              alt="Car 3"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-bold text-gray-800">
+                Mercedes-Maybach S-Class
+              </h3>
+              <p class="text-gray-600 mt-1">
+                Narxi:
+                <span class="font-semibold text-green-600">$200,000</span>
+              </p>
+              <p class="text-gray-600">
+                1 kunlik: <span class="text-red-500 font-medium">$150</span>
+              </p>
+              <p class="text-sm text-gray-500 mt-2">
+                Tejamkor, ishonchli va shinam yurish uchun ajoyib tanlov.
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 4 -->
+          <div
+            class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300"
+          >
+            <img
+              src="./img/image 13-1.svg"
+              alt="Car 4"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-bold text-gray-800">Mercedes-G Class</h3>
+              <p class="text-gray-600 mt-1">
+                Narxi:
+                <span class="font-semibold text-green-600">$250,000</span>
+              </p>
+              <p class="text-gray-600">
+                1 kunlik: <span class="text-red-500 font-medium">$85</span>
+              </p>
+              <p class="text-sm text-gray-500 mt-2">
+                Crossover, iqtisodiy yoqilg'i sarfi va keng ichki makon.
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 5 -->
+          <div
+            class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300"
+          >
+            <img
+              src="./img/bmw-m5-1-1742541891.avif"
+              alt="Car 5"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-bold text-gray-800">BMW M5 G90</h3>
+              <p class="text-gray-600 mt-1">
+                Narxi:
+                <span class="font-semibold text-green-600">$300,000</span>
+              </p>
+              <p class="text-gray-600">
+                1 kunlik: <span class="text-red-500 font-medium">$1000</span>
+              </p>
+              <p class="text-sm text-gray-500 mt-2">
+                Luks darajadagi mashina, nafis ko‘rinish va texnologiyalar.
+              </p>
+            </div>
+          </div>
+
+          <!-- CARD 6 -->
+          <div
+            class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300"
+          >
+            <img
+              src="./img/bmw-m-series-x6-m-gallery-image-impressionen-03_1920.jpg.asset.1675123934752.jpg"
+              alt="Car 6"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-bold text-gray-800">
+                BMW X6 M Compedition
+              </h3>
+              <p class="text-gray-600 mt-1">
+                Narxi:
+                <span class="font-semibold text-green-600">$400,000</span>
+              </p>
+              <p class="text-gray-600">
+                1 kunlik: <span class="text-red-500 font-medium">$1500</span>
+              </p>
+              <p class="text-sm text-gray-500 mt-2">
+                Oila uchun mos, ishonchli va qulay boshqaruv.
+              </p>
+            </div>
+          </div>
+          <div
+            id="carList"
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer
+      class="border-t bg-black text-blue-50 border-gray-300 mt-auto py-10"
+    >
+      <div class="container mx-auto px-6 flex justify-between gap-16">
+        <div class="max-w-xs">
+          <img src="./img/Logo.svg" alt="Logo" class="mb-4" />
+          <p class="text-xs leading-5">
+            Your company description or tagline goes here. Keep it brief and
+            clear.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./js/home.js"></script>
   </body>
 </html>

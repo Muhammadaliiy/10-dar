@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Car</title>
+    <script defer src="add.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <form
+      id="carForm"
+      class="bg-white p-6 rounded shadow-md w-full max-w-md space-y-4"
+    >
+      <input
+        type="text"
+        id="name"
+        placeholder="Mashina nomi"
+        class="w-full p-2 border rounded"
+      />
+      <input
+        type="text"
+        id="image"
+        placeholder="Rasm URL"
+        class="w-full p-2 border rounded"
+      />
+      <textarea
+        id="description"
+        placeholder="Tavsif"
+        class="w-full p-2 border rounded"
+      ></textarea>
+      <div class="flex justify-between">
+        <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">
+          Qo‘shish
+        </button>
+        <button
+          type="button"
+          id="resetBtn"
+          class="bg-gray-300 text-black px-4 py-2 rounded"
+        >
+          Tozalash
+        </button>
+      </div>
+    </form>
+  </body>
+</html>
